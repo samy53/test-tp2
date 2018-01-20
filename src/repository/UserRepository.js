@@ -33,4 +33,32 @@ UserRepository.prototype.create = function (user) {
         .write()
 };
 
+/**
+ *
+ * @param {number} id
+ * @return User
+ */
+UserRepository.prototype.findOneById = function (id) {
+
+};
+
+/**
+ *
+ * @param {User} user
+ */
+UserRepository.prototype.update = function (user) {
+
+};
+
+/**
+ *
+ * @param {number} id
+ */
+UserRepository.prototype.delete = function (id) {
+
+};
+
+
 module.exports = UserRepository;
+
+
