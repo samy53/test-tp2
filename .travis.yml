@@ -6,4 +6,4 @@ before_install:
   - npm install
 
 script:
-  - node jasmine.js
+  - npm test

@@ -23,4 +23,25 @@ describe("UserRepository", function() {
         });
         expect(mockDb.write).toHaveBeenCalledTimes(1);
     });
+
+    it("should throw exception undefined", function(){
+        var repository = new UserRepository({});
+        var f = function(){
+            repository.create();
+        };
+
+        expect(f).toThrow('User object is undefined')
+    });
+
+    it("should throw exception missing information", function(){
+        var repository = new UserRepository({});
+        var f = function(){
+            repository.create({
+                'id' : 1
+            });
+        };
+
+        expect(f).toThrow('User object is missing information')
+    });
+
 });

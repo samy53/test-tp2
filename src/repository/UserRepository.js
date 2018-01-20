@@ -7,7 +7,19 @@ var UserRepository = function (db) {
     this.db = db;
 };
 
+/**
+ *
+ * @param {User} user
+ */
 UserRepository.prototype.create = function (user) {
+    if (!user) {
+        throw 'User object is undefined';
+    }
+
+    if (!user.id || !user.firstname || !user.lastname || !user.birthday) {
+        throw 'User object is missing information';
+    }
+
     var userData = {
         id: user.id,
         firstname: user.firstname,
@@ -22,5 +34,3 @@ UserRepository.prototype.create = function (user) {
 };
 
 module.exports = UserRepository;
-
-
