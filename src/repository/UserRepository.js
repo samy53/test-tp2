@@ -7,7 +7,19 @@ var UserRepository = function (db) {
     this.db = db;
 };
 
+/**
+ *
+ * @param {User} user
+ */
 UserRepository.prototype.create = function (user) {
+    if (!user) {
+        throw 'User object is undefined';
+    }
+
+    if (!user.id || !user.firstname || !user.lastname || !user.birthday) {
+        throw 'User object is missing information';
+    }
+
     var userData = {
         id: user.id,
         firstname: user.firstname,
@@ -20,6 +32,32 @@ UserRepository.prototype.create = function (user) {
         .push(userData)
         .write()
 };
+
+/**
+ *
+ * @param {number} id
+ * @return User
+ */
+UserRepository.prototype.findOneById = function (id) {
+
+};
+
+/**
+ *
+ * @param {User} user
+ */
+UserRepository.prototype.update = function (user) {
+
+};
+
+/**
+ *
+ * @param {number} id
+ */
+UserRepository.prototype.delete = function (id) {
+
+};
+
 
 module.exports = UserRepository;
 
