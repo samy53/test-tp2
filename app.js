@@ -8,7 +8,7 @@ var app = express();
 app.use(bodyParser.urlencoded({extended: true})); // for parsing application/x-www-form-urlencoded
 
 app
-    .route('/user/:id')
+    .route('/user/:id?')
 
     // Récupération d'un utilisateur
     .get(function (req, res) {
