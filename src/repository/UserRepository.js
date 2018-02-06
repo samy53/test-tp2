@@ -39,7 +39,7 @@ UserRepository.prototype.create = function (user) {
  * @return User
  */
 UserRepository.prototype.findOneById = function (id) {
-
+ 
 };
 
 /**
