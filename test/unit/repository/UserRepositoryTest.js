@@ -44,4 +44,4 @@ describe("UserRepository", function() {
         expect(f).toThrow('User object is missing information')
     });
 
-});
+}); 

@@ -56,7 +56,7 @@ UserRepository.prototype.update = function (user) {
  */
 UserRepository.prototype.delete = function (id) {
 
-};
+}; 
 
 
 module.exports = UserRepository;
