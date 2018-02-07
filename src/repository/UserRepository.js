@@ -39,7 +39,15 @@ UserRepository.prototype.create = function (user) {
  * @return User
  */
 UserRepository.prototype.findOneById = function (id) {
- 
+    if (!(typeof id === "number") ) {
+            throw 'Unable to compute factorial of non integer values'
+    }
+
+    return this.db
+        .get('users')
+        .find({id: id})
+        .value();
+
 };
 
 /**
