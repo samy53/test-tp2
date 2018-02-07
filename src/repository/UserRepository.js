@@ -39,9 +39,6 @@ UserRepository.prototype.create = function (user) {
  * @return User
  */
 UserRepository.prototype.findOneById = function (id) {
-    if (!(typeof id === "number") ) {
-            throw 'Unable to compute factorial of non integer values'
-    }
 
     return this.db
         .get('users')
@@ -55,7 +52,11 @@ UserRepository.prototype.findOneById = function (id) {
  * @param {User} user
  */
 UserRepository.prototype.update = function (user) {
-
+    this.db
+        .get('users')
+        .find({id: user.id})
+        .assign(user)
+        .write();
 };
 
 /**
@@ -63,7 +64,10 @@ UserRepository.prototype.update = function (user) {
  * @param {number} id
  */
 UserRepository.prototype.delete = function (id) {
-
+    this.db
+        .get('users')
+        .remove({id: id})
+        .write()
 };
 
 
