@@ -139,9 +139,6 @@ describe("UserRepository", function() {
 
         expect(mockDb.write).toHaveBeenCalledTimes(2);
 
-
-
-
     });
 
 
