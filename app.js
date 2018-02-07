@@ -19,7 +19,10 @@ app
          * sous format json au client.(voir le controlleur .post)
          */
 
-        res.send('Not implemented');
+        var repository = new UserRepository(db);
+        var user = repository.findOneById(id);
+        res.send(user);
+
     })
 
     // Creation d'un utilisateur
@@ -40,23 +43,30 @@ app
     //mise à jour d'un utilisateur
     .put(function (req, res) {
 
-        /**
-         * Implémenter le controlleur
-         */
+        var user = new User();
+        user.id = req.body.id;
+        user.firstname = req.body.firstname;
+        user.lastname = req.body.lastname;
+        user.birthday = req.body.birthday;
 
-        res.send('Not implemented');
+        var repository = new UserRepository(db);
+        repository.update(user);
+        res.send("updated");
+
+
     })
 
     //suppression d'un utilisateur
     .delete(function (req, res) {
-        /**
-         * Implémenter le controlleur
-         */
+        var id = req.body.id;
 
-        res.send('Not implemented');
+        var repository = new UserRepository(db);
+        repository.delete(id);
+
+        res.send('Deleted');
     });
 
 
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!')
-}); 
+});
